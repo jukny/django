@@ -1,0 +1,16 @@
+{% load static from staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for collection in collections %}
+    {% with collection.collection_name|add:'/'|add:collection.thumbnail as img_path %}
+    <img src="{% static img_path %}" />
+    {{ img_path }}
+    {% endwith %}
+    {{collection.collection_name}}
+    {% endfor %}
+</body>
+</html>
